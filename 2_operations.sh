@@ -55,16 +55,16 @@ result="${numbers[0]}"
 for ((i=1; i<${#numbers[@]}; i++));do
     case "$operation" in
     +)
-        result=$((result+${numbers[i]}))
+        result=$((result + numbers[i]))
     ;;
     -)
-        result=$((result-${numbers[i]}))         
+        result=$((result - numbers[i]))         
     ;;
     \*)
-        result=$((result*${numbers[i]}))
+        result=$((result * numbers[i]))
     ;;
     %)
-        result=$((result%${numbers[i]}))
+        result=$((result % numbers[i]))
     ;;
     *)
         echo "Invalid operation"
