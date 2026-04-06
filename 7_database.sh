@@ -5,7 +5,7 @@ create_db() {
 
     if [[ -z "$db_name" ]]; then
        echo "Error: Missing database name!"
-       echo "Usage: ./database.sh create_db <db_name>"
+       echo "Usage: ./7_database.sh create_db <db_name>"
        exit 1
     fi
 
@@ -28,7 +28,7 @@ create_table() {
 
     if [[ -z "$db_name" ]] || [[ -z "$table_name" ]] || [[ ${#fields[@]} -eq 0 ]]; then
         echo "Error: Missing database name or table name or fields"
-        echo "Usage: ./database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
+        echo "Usage: ./7_database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
         exit 1
     fi
     
@@ -78,7 +78,7 @@ insert_data(){
 
      if [[ -z "$db_name" ]] || [[ -z "$table_name" ]]; then
           echo "Error: Missing database name or table name"
-          echo "Usage: ./database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
+          echo "Usage: ./7_database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
           exit 1
      fi
 
@@ -129,7 +129,7 @@ select_data() {
  
     if [[ -z "$db_name" ]] || [[ -z "$table_name" ]]; then
         echo "Error: Missing database name or table name"
-        echo "Usage: echo ./database.sh select_data <db_name> <table_name>"
+        echo "Usage: echo ./7_database.sh select_data <db_name> <table_name>"
         exit 1
     fi
  
@@ -155,7 +155,7 @@ delete_data() {
 
     if [[ -z "$db_name" ]] || [[ -z "$table_name" ]] || [[ -z "$condition" ]]; then
         echo "Error: Missing database name, table name or condition"
-        echo "Usage: ./database.sh delete_data <db_name> <table_name> field=value"
+        echo "Usage: ./7_database.sh delete_data <db_name> <table_name> field=value"
         exit 1
     fi
 
@@ -247,12 +247,12 @@ delete_data() {
 if [ $# -lt 1 ]; then
     echo "Error: missing command"
     echo "Usage:"
-    echo "./database.sh create_db <db_name>"
-    echo "./database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
-    echo "./database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
-    echo "./database.sh select_data <db_name> <table_name>"
-    echo "./database.sh delete_data <db_name> <table_name> field=value"
-    echo "./database.sh help"
+    echo "./7_database.sh create_db <db_name>"
+    echo "./7_database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
+    echo "./7_database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
+    echo "./7_database.sh select_data <db_name> <table_name>"
+    echo "./7_database.sh delete_data <db_name> <table_name> field=value"
+    echo "./7_database.sh help"
     exit 1
 fi
  
@@ -281,11 +281,11 @@ case "$1" in
         echo "  delete_data  - deletes rows matching condition"
         echo ""
         echo "Usage:"
-        echo "  ./database.sh create_db <db_name>"
-        echo "  ./database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
-        echo "  ./database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
-        echo "  ./database.sh select_data <db_name> <table_name>"
-        echo "  ./database.sh delete_data <db_name> <table_name> \"field=value\""
+        echo "  ./7_database.sh create_db <db_name>"
+        echo "  ./7_database.sh create_table <db_name> <table_name> <field1> [field2] [field3] [field4]"
+        echo "  ./7_database.sh insert_data <db_name> <table_name> <value1> [value2] [value3] [value4]"
+        echo "  ./7_database.sh select_data <db_name> <table_name>"
+        echo "  ./7_database.sh delete_data <db_name> <table_name> \"field=value\""
     ;;
     *)
         echo "Error: Invalid command"
