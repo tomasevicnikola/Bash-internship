@@ -28,9 +28,12 @@ if [[ -z "$external_ip" ]]; then
 fi
 
 if [ -f /etc/os-release ]; then
-    source /etc/os-release
-    distro_info="$PRETTY_NAME"
+    distro_info=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
 else
+    distro_info="Unavailable"
+fi
+
+if [[ -z "$distro_info" ]]; then
     distro_info="Unavailable"
 fi
 
